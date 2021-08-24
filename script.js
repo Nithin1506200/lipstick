@@ -1,6 +1,7 @@
 let video = document.getElementById('video');
 let model;
 let canvas =document.getElementById("canvas");
+tf.ENV.set("WEBGL_CPU_FORWARD", true);
 let ctx=canvas.getContext("2d");
 const setupCam = () =>{
     navigator.mediaDevices.getUserMedia({
@@ -11,35 +12,33 @@ const setupCam = () =>{
     });
 };
 const detectFaces = async () => {
-    const prediction =await model.estimateFaces(video, false);
-   // console.log(prediction);
-
-    //ctx.drawImage(video,0,0,video.clientWidth,video.clientHeight);
-    ctx.clearRect(0,0,canvas.width,canvas.height)
-
-  prediction.forEach((pred)=> {
+        const predictions = await model.estimateFaces({
+            input: video
+        });
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+if(predictions.length>0){
+    predictions.forEach((pred)=>{
         ctx.beginPath();
         ctx.lineWidth="4";
         ctx.strokeStyle= "red";
         ctx.rect(
-            pred.topLeft[0],
-            pred.topLeft[1],
-            pred.bottomRight[0]-pred.topLeft[0],
-            pred.bottomRight[1]-pred.topLeft[1] 
+            pred.boundingBox.topLeft[0],
+            pred.boundingBox.topLeft[1],
+            pred.boundingBox.bottomRight[0]-pred.boundingBox.topLeft[0],
+            pred.boundingBox.bottomRight[1]-pred.boundingBox.topLeft[1] 
         );
         ctx.stroke();
        // console.log(ctx);
         ctx.fillStyle="green";
-        pred.landmarks.forEach(landmark =>{
-            ctx.fillRect(landmark[0],landmark[1],5,5)
-        })
-    
-    }); 
-
-
+        pred.scaledMesh.forEach(mesh =>{
+            ctx.fillRect(mesh[0],mesh[1],3,3)
+        });
+    });
+}
 };
 setupCam();
 video.addEventListener("loadeddata",async () => {
-    model =await  blazeface.load();
+     model = await faceLandmarksDetection.load(
+        faceLandmarksDetection.SupportedPackages.mediapipeFacemesh);
     setInterval(detectFaces,100);
 })
