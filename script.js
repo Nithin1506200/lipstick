@@ -1,28 +1,42 @@
 
-tf.ready().then(() => {
-    let video = document.getElementById('video');
-    let model;
-    let canvas =document.getElementById("canvas");
-    
-    let ctx=canvas.getContext("2d");
+
+
+    const w=600;
+const h=400;
+    const Video=document.getElementById("video1");
+    let alpha=0.5;
+    let lipcolor="rgba(200,0,0,.5)"
+   let model;
     const setupCam = () =>{
         navigator.mediaDevices.getUserMedia({
-            video: true,
+            video: {width:w,height:h},
             audio:false,
         }).then(stream => {
-            video.srcObject=stream;
+            Video.srcObject=stream;
         });
     };
+  
+
+const lipst=[57,185,40,39,37,0,267,269,270,409,287,291,308,415,310,311,312,12,82,81,80,191,78,61];
+
+const lipsb=[287,375,321,405,314,17,84,181,91,146,57,61,62,78,95,88,178,87,14,317,402,318,324,308,291];
+//const mouth=[78,191,80,81,82,13,312,311,310,415,308,324,318,402,317,14,87,178,88,95];
     const detectFaces = async () => {
+        const canvas=document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const canvas2=document.getElementById("canvas2");
+const ctx2=canvas2.getContext("2d");
+        await ctx2.drawImage(Video,0,0,w,h);
             const predictions = await model.estimateFaces({
-                input: video
+                input: canvas2
             });
-            ctx.clearRect(0,0,canvas.width,canvas.height);
+           // ctx.drawImage(Video,0,0,w,h)
+           ctx.clearRect(0,0,w,h);
     if(predictions.length>0){
         predictions.forEach((pred)=>{
             ctx.beginPath();
-            ctx.lineWidth="4";
-            ctx.strokeStyle= "red";
+            ctx.lineWidth="1";
+            ctx.strokeStyle= "black";
             ctx.rect(
                 pred.boundingBox.topLeft[0],
                 pred.boundingBox.topLeft[1],
@@ -31,20 +45,46 @@ tf.ready().then(() => {
             );
             ctx.stroke();
            // console.log(ctx);
-            ctx.fillStyle="green";
-            pred.scaledMesh.forEach(mesh =>{
-                ctx.fillRect(mesh[0],mesh[1],3,3)
-            });
+            // ctx.fillStyle="green";
+            // pred.scaledMesh.forEach(mesh =>{
+            //     ctx.fillRect(mesh[0],mesh[1],1,1)
+            // });
+            
+            ctx.fillStyle=lipcolor;
+            ctx.beginPath();
+            lipst.forEach(e=>{
+                ctx.lineTo(pred.scaledMesh[e][0],pred.scaledMesh[e][1]);
+
+            })
+
+            ctx.closePath();
+           ctx.fill();
+           ctx.beginPath();
+             lipsb.forEach(e=>{
+                ctx.lineTo(pred.scaledMesh[e][0],pred.scaledMesh[e][1]);
+
+            })
+
+            ctx.closePath();
+           ctx.fill();
         });
     }
     };
-    setupCam();
-    video.addEventListener("loadeddata",async () => {
-         model = await faceLandmarksDetection.load(
+    
+    let btn=document.querySelector("#myBtn");
+    btn.addEventListener("click",()=> {
+        setupCam();
+    Video.addEventListener("loadeddata",async () => {
+       btn.style.display="none";
+        model = await faceLandmarksDetection.load(
             faceLandmarksDetection.SupportedPackages.mediapipeFacemesh);
-        setInterval(detectFaces,50);
+        setInterval(detectFaces,150);
     })
 
-});
+})
 
 
+function changecolor(r,g,b,al) {
+    lipcolor="rgba("+r+","+g+","+b+","+al+")"
+   
+}

@@ -18,13 +18,121 @@
 <!-- Require face-landmarks-detection itself. -->
 <script src="https://unpkg.com/@tensorflow-models/face-landmarks-detection@0.0.1/dist/face-landmarks-detection.js"></script>
 
-    </head>    
-<body >
-    <div>
-        <video id="video"  autoplay></video>
+    </head>
+<body>
+    <div class="preload">
+        <div class="container1i">
+            <div class="dot dot1"></div>
+            <div class="dot dot2"></div>
+            <div class="dot dot3"></div>
+        </div>
+        <p>Loading...</p>
+        <div class="progressw">
+            <div class="windowprogress"></div>
+        </div>
+        <div class="browser">
+            <span>Nithin N ENG18EC0072</span>
+            <span> Recommended Browser:Firefox</span>
 
-        <canvas id="canvas" height="480" width="640" ></canvas>
-        <script src="script.js"></script>
-    </div>
+            <img
+                src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo-word-hor-xs.c87882e8c93c.png"
+                alt="firefoxlogo"
+            >
+            </div>
+            </div>
+            <h1>Lipstick</h1>
+            <video
+                id="video1"
+                autoplay
+                style="display: none;"
+            ></video>
+            <div class="videofeed">
+                <canvas
+                    id="canvas2"
+                    width="600px"
+                    height="400px"
+                ></canvas>
+                <canvas
+                    style="position: absolute;"
+                    id="canvas"
+                    width="600px"
+                    height="400px"
+                ></canvas>
+            </div>
+            <button id="myBtn">start</button>
+            <div class="color">
+                <button
+                    class="clr-btns"
+                    style="background-color:#d0312d;"
+                    onclick=changecolor(208,49,45,.4)
+                    ;
+                >Red</button>
+                <button
+                    class="clr-btns"
+                    style="background-color:#990f02;"
+                    onclick=changecolor(153,15,2,.5);
+                >Cherry</button>
+                <button
+                    class="clr-btns"
+                    style="background-color:#e3242b;"
+                    onclick=changecolor(227,36,43,.5);
+                >Rose</button>
+                <button
+                    class="clr-btns"
+                    style="background-color:#60100b;"
+                    onclick=changecolor(96,16,11,.5);
+                >Jam</button>
+                <button
+                    class="clr-btns"
+                    style="background-color:#541e1b;"
+                    onclick=changecolor(84,31,27,.6);
+                >Merlot</button>
+                <button
+                    class="clr-btns"
+                    style="background-color:#610c04;"
+                    onclick=changecolor(97,12,04,.5);
+                >Garnet</button>
+                <button
+                    class="clr-btns"
+                    style="background-color:#b90e0a;"
+                    onclick=changecolor(185,14,10,.4);
+                >Crimson</button>
+                <button
+                    class="clr-btns"
+                    style="background-color:#900603;"
+                    onclick=changecolor(144,13,09,.5);
+                >Ruby</button>
+                <button
+                    class="clr-btns"
+                    style="background-color:#900d09;"
+                    onclick=changecolor(144,13,09,.5);
+                >Scarlet</button>
+                <button
+                    class="clr-btns"
+                    style="background-color:#4e0707;"
+                    onclick=changecolor(78,07,07,.5);
+                >Wine</button>
+                <button
+                    class="clr-btns"
+                    style="background-color:#752811;"
+                    onclick=changecolor(117,40,17,.5);
+                >Brick</button>
+                <button
+                    class="clr-btns"
+                    style="background-color:#a91b0d;"
+                    onclick=changecolor(169,27,13,.5);
+                >Apple</button>
+            </div>
 </body>
+<script>
+    let loadfun = document.querySelector(".preload");
+    let progressBar = document.querySelector(".windowprogress");
+
+    window.onload = () => {
+        loadfun.classList.add("loadcomplete");
+        setTimeout(() => { loadfun.style.display = 'none'; }, 5000)
+
+    };
+</script>
+<script src="script.js"></script>
 </html>
