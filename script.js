@@ -5,7 +5,7 @@
 const h=400;
     const Video=document.getElementById("video1");
     let alpha=0.5;
-    let lipcolor="rgba(200,0,0,.5)"
+    let lipcolor="rgba(78,07,07,.5)"
    let model;
     const setupCam = () =>{
         navigator.mediaDevices.getUserMedia({
