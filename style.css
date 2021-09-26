@@ -9,10 +9,19 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100vw;
- overflow: hidden;
+  max-width: 100vw;
+ overflow-x: hidden;
   
 padding-top: 10px;
+}
+.circle1 {
+    width: 150vw;
+    height: 120vw;
+    top: -200%;
+    z-index: -3;
+    border-radius: 50%;
+    position: absolute;
+    background-color: rgb(243, 243, 243);
 }
 .lips-background {
     position: absolute;
@@ -24,7 +33,7 @@ padding-top: 10px;
     transform: rotate(-30deg);
 }
 html {
-    width: 100vw;
+    max-width: 100vw;
 }
 .preload {
     position: fixed;
@@ -142,6 +151,7 @@ html {
 }
 #canvas {
    -webkit-filter: blur(1px);
+
     background-blend-mode: overlay;
    
 }
@@ -181,23 +191,15 @@ h5 {
 }
 @media only screen and (max-width: 600px) {
  #canvas2 ,#canvas   {
-      width: 450px;
+      width: 300px;
       height: 400px;
+  }
+  .circle1 {
+      top: -20%;
   }
  
 }
-body::after {
-    content: "";
-    width: 200%;
-    height: 100%;
-    background:rgba(221, 221, 221, 0.6);
-    position: absolute;
-    z-index: -2;
-    border-radius: 50% 50%;
-    transform:translatey(-50%);
-  
-   
-}
+
 body h1 {
     color: rgb(146, 146, 146);
    position: absolute;
