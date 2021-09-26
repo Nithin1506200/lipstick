@@ -10,7 +10,18 @@ body {
   justify-content: center;
   flex-direction: column;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
+padding-top: 10px;
+}
+.lips-background {
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+    right: -3px;
+   width: 180px;
+    filter: blur(.5px);
+    transform: rotate(-30deg);
 }
 html {
     width: 100vw;
@@ -125,7 +136,9 @@ html {
     border-radius: 10px;
    width: 600;
    height: 400;
-    box-shadow: 5px 5px 10px 0px rgb(187, 184, 184);
+    box-shadow: 5px 5px 10px 0px rgba(31, 30, 30, 0.3);
+
+  
 }
 #canvas {
    -webkit-filter: blur(1px);
@@ -133,13 +146,14 @@ html {
    
 }
 #myBtn {
-    width: 100px;
-    height: 40px;
+   min-width: 100px;
+    min-height: 40px;
     box-shadow: 2px 2px 4px 0px rgb(116, 116, 116);
     background-color: rgb(236, 74, 74);
     border: none;
     border-radius: 3px;
     transition: all .5s;
+   
 }
 #myBtn:hover {
     color:white;
@@ -150,13 +164,27 @@ html {
     display: flex;
     align-items: center;
     margin: 20px;
+    justify-content: center;
+  
 
 }
+h5 {
+    position: absolute;
+    color: rgb(12, 12, 11);
+    right: 5px;
+    top:5px;
+    font-family:'Courier New', Courier, monospace;
+    background-color: rgb(223, 222, 222);
+    padding: 2px;
+    border-radius: 3px;
+    color: rgb(160, 160, 160);
+}
 @media only screen and (max-width: 600px) {
-  #canvas   {
-      width: 70%;
-      height: 50%;
+ #canvas2 ,#canvas   {
+      width: 450px;
+      height: 400px;
   }
+ 
 }
 body::after {
     content: "";
@@ -167,11 +195,15 @@ body::after {
     z-index: -2;
     border-radius: 50% 50%;
     transform:translatey(-50%);
+  
    
 }
-body > h1 {
-    color: white;
-    margin: 10px;
+body h1 {
+    color: rgb(146, 146, 146);
+   position: absolute;
+    top: 30px;
+    
+    
 }
 
 @keyframes right {
@@ -195,13 +227,20 @@ body > h1 {
     }
 }
 .color {
-    margin: 10px;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 10px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+  min-height: 150px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    background-color: rgb(238, 237, 237);
 }
 .clr-btns {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50% 50%;
     appearance: none;
     border:white 3px solid;
@@ -209,10 +248,33 @@ body > h1 {
     font-family: 'Franklin Gothic Medium', 'Bold', Arial, sans-serif;
     color: blanchedalmond;
     font-size: 10px;
-    box-shadow: 2px 2px 5px 0px grey ;
+    box-shadow: 2px 2px 5px 0px rgb(24, 24, 24) ;
+     word-wrap: break-word;
+    
+}
+.loadvideo {
+    display: none;
+    position: absolute;
+    
+    
+    width: 60px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
     
 }
 .clr-btns:hover {
     cursor: pointer;
-    border-color: rgb(46, 255, 150);
+    border-color: rgb(156, 245, 237);
+}
+.clr-btns:active {
+    border-color: greenyellow;
+}
+
+
+.loadvideo p {
+    margin: 6px;
+    position: absolute;
+    bottom: -30px;
+    color: rgb(71, 70, 70);
 }

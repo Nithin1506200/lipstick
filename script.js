@@ -30,20 +30,21 @@ const ctx2=canvas2.getContext("2d");
             const predictions = await model.estimateFaces({
                 input: canvas2
             });
+            loadvideo.style.display="none";
            // ctx.drawImage(Video,0,0,w,h)
            ctx.clearRect(0,0,w,h);
     if(predictions.length>0){
         predictions.forEach((pred)=>{
-            ctx.beginPath();
-            ctx.lineWidth="1";
-            ctx.strokeStyle= "black";
-            ctx.rect(
-                pred.boundingBox.topLeft[0],
-                pred.boundingBox.topLeft[1],
-                pred.boundingBox.bottomRight[0]-pred.boundingBox.topLeft[0],
-                pred.boundingBox.bottomRight[1]-pred.boundingBox.topLeft[1] 
-            );
-            ctx.stroke();
+            // ctx.beginPath();
+            // ctx.lineWidth="1";
+            // ctx.strokeStyle= "black";
+            // ctx.rect(
+            //     pred.boundingBox.topLeft[0],
+            //     pred.boundingBox.topLeft[1],
+            //     pred.boundingBox.bottomRight[0]-pred.boundingBox.topLeft[0],
+            //     pred.boundingBox.bottomRight[1]-pred.boundingBox.topLeft[1] 
+            // );
+            // ctx.stroke();
            // console.log(ctx);
             // ctx.fillStyle="green";
             // pred.scaledMesh.forEach(mesh =>{
@@ -70,9 +71,10 @@ const ctx2=canvas2.getContext("2d");
         });
     }
     };
-    
+    const loadvideo=document.querySelector(".loadvideo");
     let btn=document.querySelector("#myBtn");
     btn.addEventListener("click",()=> {
+        loadvideo.style.display="flex";
         setupCam();
     Video.addEventListener("loadeddata",async () => {
        btn.style.display="none";
@@ -85,6 +87,7 @@ const ctx2=canvas2.getContext("2d");
 
 
 function changecolor(r,g,b,al) {
-    lipcolor="rgba("+r+","+g+","+b+","+al+")"
+    lipcolor="rgba("+r+","+g+","+b+","+al+")";
+  
    
 }
