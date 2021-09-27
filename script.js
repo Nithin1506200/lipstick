@@ -102,6 +102,7 @@ const ctx2=canvas2.getContext("2d");
 
 function changecolor(r,g,b,al) {
     lipcolor="rgba("+r+","+g+","+b+","+al+")";
-    
+    let circle1=document.querySelector(".circle1");
+    circle1.style.background=lipcolor;
    
 }

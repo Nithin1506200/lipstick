@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   max-width: 100vw;
  overflow-x: hidden;
-  
+  background-color: rgb(255, 230, 230);
 padding-top: 10px;
 }
 .circle1 {
@@ -21,7 +21,7 @@ padding-top: 10px;
     z-index: -3;
     border-radius: 50%;
     position: absolute;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(253, 192, 192);
 }
 .lips-background {
     position: absolute;
@@ -201,10 +201,10 @@ h5 {
 }
 
 body h1 {
-    color: rgb(146, 146, 146);
+    color: rgb(253, 253, 253);
    position: absolute;
     top: 30px;
-    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     
 }
 
