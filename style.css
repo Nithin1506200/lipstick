@@ -204,10 +204,11 @@ h5 {
 }
 
 body h1 {
-    color: rgb(253, 253, 253);
+    color: rgb(219, 3, 3);
    position: absolute;
+   text-shadow: rgb(146, 139, 139) 2px 2px 4px;
     top: 30px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Birthstone', cursive;
     
 }
 
