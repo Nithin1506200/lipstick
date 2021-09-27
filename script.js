@@ -1,6 +1,7 @@
 
 let w=600;
 let h=400;
+let fp;
 if( navigator.userAgent.match(/Android/i)
  || navigator.userAgent.match(/webOS/i)
  || navigator.userAgent.match(/iPhone/i)
@@ -14,7 +15,7 @@ if( navigator.userAgent.match(/Android/i)
  else {
      fp=100;
  }
-let fp;
+
 
     const Video=document.getElementById("video1");
     let alpha=0.5;
