@@ -8,8 +8,8 @@ if( navigator.userAgent.match(/Android/i)
  || navigator.userAgent.match(/iPod/i)
  || navigator.userAgent.match(/BlackBerry/i)
  || navigator.userAgent.match(/Windows Phone/i)) {
-     w=150;
- h=100;
+     w=300;
+ h=200;
  }
  else {
           w=600;
