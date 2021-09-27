@@ -1,21 +1,20 @@
 
 let w=600;
 let h=400;
-//if( navigator.userAgent.match(/Android/i)
-//  || navigator.userAgent.match(/webOS/i)
-//  || navigator.userAgent.match(/iPhone/i)
-//  || navigator.userAgent.match(/iPad/i)
-//  || navigator.userAgent.match(/iPod/i)
-//  || navigator.userAgent.match(/BlackBerry/i)
-//  || navigator.userAgent.match(/Windows Phone/i)) {
-//      w=300;
-//  h=200;
-//  }
-//  else {
-//           w=600;
-//       h=400;
-//  }
+if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ || navigator.userAgent.match(/Windows Phone/i)) {
+ fp=200;
 
+ }
+ else {
+     fp=100;
+ }
+let fp;
 
     const Video=document.getElementById("video1");
     let alpha=0.5;
@@ -94,7 +93,7 @@ const ctx2=canvas2.getContext("2d");
        btn.style.display="none";
         model = await faceLandmarksDetection.load(
             faceLandmarksDetection.SupportedPackages.mediapipeFacemesh);
-        setInterval(detectFaces,100);
+        setInterval(detectFaces,fp);
     })
 
 })
@@ -102,6 +101,6 @@ const ctx2=canvas2.getContext("2d");
 
 function changecolor(r,g,b,al) {
     lipcolor="rgba("+r+","+g+","+b+","+al+")";
-  
+    
    
 }
