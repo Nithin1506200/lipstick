@@ -1,20 +1,20 @@
 
-let w;
-let h;
-if( navigator.userAgent.match(/Android/i)
- || navigator.userAgent.match(/webOS/i)
- || navigator.userAgent.match(/iPhone/i)
- || navigator.userAgent.match(/iPad/i)
- || navigator.userAgent.match(/iPod/i)
- || navigator.userAgent.match(/BlackBerry/i)
- || navigator.userAgent.match(/Windows Phone/i)) {
-     w=300;
- h=200;
- }
- else {
-          w=600;
-      h=400;
- }
+let w=600;
+let h=400;
+//if( navigator.userAgent.match(/Android/i)
+//  || navigator.userAgent.match(/webOS/i)
+//  || navigator.userAgent.match(/iPhone/i)
+//  || navigator.userAgent.match(/iPad/i)
+//  || navigator.userAgent.match(/iPod/i)
+//  || navigator.userAgent.match(/BlackBerry/i)
+//  || navigator.userAgent.match(/Windows Phone/i)) {
+//      w=300;
+//  h=200;
+//  }
+//  else {
+//           w=600;
+//       h=400;
+//  }
 
 
     const Video=document.getElementById("video1");
