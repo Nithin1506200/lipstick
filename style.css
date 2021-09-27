@@ -21,7 +21,10 @@ padding-top: 10px;
     z-index: -3;
     border-radius: 50%;
     position: absolute;
+    border: white solid 10px;
     background-color: rgb(253, 192, 192);
+    transition: .6s;
+    transform-origin: top;
 }
 .lips-background {
     position: absolute;
