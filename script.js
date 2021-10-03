@@ -13,7 +13,7 @@ if( navigator.userAgent.match(/Android/i)
 
  }
  else {
-     fp=100;
+     fp=90;
  }
 
 

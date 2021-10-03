@@ -206,7 +206,7 @@ h5 {
 body h1 {
     color: rgb(219, 3, 3);
    position: absolute;
-   text-shadow: rgb(146, 139, 139) 2px 2px 4px;
+   text-shadow: rgba(19, 19, 19,.8) 2px 2px 4px;
     top: 30px;
     font-family: 'Birthstone', cursive;
     
